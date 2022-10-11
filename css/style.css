@@ -73,7 +73,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -60%);
   width: 400px;
   height: 400px;
   background-image: url(./../images/home_me.png);
@@ -83,7 +83,7 @@
 }
 @media screen and (max-width:640px) {
   #home > .home-img {
-    width: 300px;
+    width: 200px;
     height: 300px;
   }
 }
@@ -109,11 +109,11 @@
   #home > .intro > .typing {
     width: 100%;
     position: absolute;
-    top: 30%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 38px;
-    line-height: 50px;
+    font-size: 28px;
+    line-height: 1.4;
   }
 }
 #home > .intro > .typing > span {
@@ -133,10 +133,11 @@
   #home > .intro > p {
     width: 100%;
     position: absolute;
-    bottom: 10%;
+    bottom: 0;
     left: 50%;
     transform: translate(-50%, -50%);
-    line-height: 1.4;
+    line-height: 1.2;
+    font-weight: 300;
   }
 }
 #home > .intro > p > span {
@@ -1362,6 +1363,24 @@ section#uxdesign > .uxui > .container > .uxui-case > .ui-frame {
   transition: ease-out 0.3s;
   z-index: 300;
 }
+section#uxdesign > .uxui > .container > .uxui-case > .ui-frame.ui-frame2 {
+  border: 1px solid #ccc;
+  border-radius: 150px 0 0 150px;
+  box-sizing: border-box;
+}
+@media screen and (max-width:640px) {
+  section#uxdesign > .uxui > .container > .uxui-case > .ui-frame.ui-frame2 {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    border-radius: 150px 150px 0 0;
+    box-sizing: border-box;
+  }
+  section#uxdesign > .uxui > .container > .uxui-case > .ui-frame.ui-frame2 > img {
+    margin-left: 10px;
+    width: 80%;
+    height: 123px;
+  }
+}
 @media screen and (max-width:640px) {
   section#uxdesign > .uxui > .container > .uxui-case > .ui-frame {
     order: 100;
@@ -1391,6 +1410,25 @@ section#uxdesign > .uxui > .container > .uxui-case > .ux-frame {
   margin-right: -420px;
   transition: ease-out 0.3s;
   z-index: 300;
+}
+section#uxdesign > .uxui > .container > .uxui-case > .ux-frame.ux-frame2 {
+  border: 1px solid #ccc;
+  border-radius: 0 150px 150px 0;
+  box-sizing: border-box;
+}
+@media screen and (max-width:640px) {
+  section#uxdesign > .uxui > .container > .uxui-case > .ux-frame.ux-frame2 {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    border-radius: 0 0 150px 150px;
+    box-sizing: border-box;
+  }
+  section#uxdesign > .uxui > .container > .uxui-case > .ux-frame.ux-frame2 > img {
+    margin-left: 13px;
+    margin-bottom: 10px;
+    width: 80%;
+    height: 123px;
+  }
 }
 @media screen and (max-width:640px) {
   section#uxdesign > .uxui > .container > .uxui-case > .ux-frame {
@@ -2051,6 +2089,11 @@ section#portfolio > .works > .work-list > li {
 }
 @media screen and (max-width:640px) {
   section#portfolio > .works > .work-list > li {
+    padding-top: 0;
+  }
+}
+@media screen and (max-width:640px) {
+  section#portfolio > .works > .work-list > li {
     width: 100%;
     margin-bottom: 64px;
     box-shadow: 0 0 10px #aaa;
@@ -2207,6 +2250,7 @@ section#contact > .apply > .help {
   section#contact > .apply > .help {
     position: initial;
     width: 90%;
+    height: 200px;
     margin: 0 auto;
   }
 }
