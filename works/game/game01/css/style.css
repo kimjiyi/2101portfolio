@@ -1,0 +1,105 @@
+@charset "utf-8";
+
+#wrap{
+    width: 687px;
+    margin: 0 auto;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    padding: 100px 0;
+}
+
+header>.instaicon{
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    background-image: url(./../images/insta.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+header>h1{
+    font-size: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+h2{
+    margin-bottom: 20px;
+}
+
+
+address{
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.game{
+    text-align: center;
+}
+
+.game>.frame-container{
+    background-image: url(./../images/frame2.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.frame{
+    position: relative;
+    margin: 0 auto;
+    width: 350px;
+    height: 400px;
+    background-image: url(../images/face.png);
+}
+
+img:nth-child(1){
+    position: absolute;
+    margin-top: 140px;
+    left: 73px;
+    width: 200px;
+    height: 70px;
+}
+
+img:nth-child(2){
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    margin-left: -30px;
+    
+    width: 50px;
+}
+
+
+img:nth-child(3){
+    position: absolute;
+    text-align: center;
+    margin-top: 270px;
+    left: 130px;
+    width: 80px;
+}
+
+
+.start{
+  text-indent: -9999px;
+  background-image: url(../images/btn_start.png);
+  border-radius: 10px;
+  border: none;
+  width: 134px;
+  height: 48px;
+  cursor: pointer;
+
+}
+.stop{
+  text-indent: -9999px;
+  background-image: url(../images/btn_stop.png);
+  border: none;
+  border-radius: 10px;
+  width: 134px;
+  height: 48px;
+  cursor: pointer;
+}
