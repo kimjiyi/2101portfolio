@@ -12,15 +12,17 @@ body {
 }
 
 /* 초기화 */
-html,body,div,span,h1,h2,h3,h4,h5,h6,
-p,blockquote,q,address,strong,em,img,
-ul,ol,li,dl,dt,dd,a,figure, figcaption, mark, i, b,
-table, caption, tbody, tfoot, thead, tr, th, td,
-header,section,article,footer,nav,aside{
+html,body,div,span,object,h1,h2,h3,h4,h5,h6,p,
+blockquote,pre,abbr,address,cite,code,del,em,img,
+ins,q,strong,sub,sup,b,i,dl,dt,dd,ol,ul,li,a,
+fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,
+article,aside,canvas,details,figcaption,figure,footer,header,hgroup,
+menu,nav,section,summary,time,mark,audio,video{
     margin: 0;
     padding: 0;
     border: 0;
-		
+		vertical-align:baseline;
+    -webkit-text-size-adjust:none;
 }
 
 a:link,

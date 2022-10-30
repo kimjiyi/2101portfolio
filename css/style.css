@@ -383,14 +383,6 @@ header ~ section > h2 {
   line-height: 50px;
   text-align: center;
 }
-header ~ section > h2:after {
-  display: block;
-  width: 138px;
-  height: 15px;
-  margin: 30px auto 0;
-  background-image: url(./../images/deco_tit.png);
-  content: "";
-}
 
 section#aboutme > .container {
   display: flex;
@@ -520,8 +512,8 @@ section#aboutme > .container > .biography > .detail > .ican > li:before {
 }
 section#aboutme > .workstyle {
   width: 100%;
-  margin-top: 24px;
-  background-color: #162413;
+  margin-top: 100px;
+  background-color: #333;
 }
 @media screen and (max-width:640px) {
   section#aboutme > .workstyle {
@@ -826,7 +818,6 @@ section#skill > article.skill-2 li:last-child {
 }
 
 section#ability {
-  margin-top: 100px;
   background-color: #222;
 }
 section#ability > h2 {

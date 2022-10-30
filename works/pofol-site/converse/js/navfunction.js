@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).on(function () {
   //when the button is clicked
   $("#showMenu").click(function () {
     //apply toggleable classes

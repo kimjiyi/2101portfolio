@@ -424,14 +424,14 @@ header~section{
     line-height: 50px;
     text-align: center;
 
-    &:after{
-      display: block;
-      width: 138px;
-      height: 15px;
-      margin: 30px auto 0;
-      background-image: url(./../images/deco_tit.png);
-      content: '';
-    }
+    // &:after{
+    //   display: block;
+    //   width: 138px;
+    //   height: 15px;
+    //   margin: 30px auto 0;
+    //   background-image: url(./../images/deco_tit.png);
+    //   content: '';
+    // }
   }//end of h2
 
 
@@ -581,8 +581,8 @@ section#aboutme{
 
   > .workstyle {
     width: 100%;
-    margin-top: 24px;
-    background-color: #162413;
+    margin-top: 100px;
+    background-color: #333;
 
     @media #{$mobile}{
       margin-top: 0;
@@ -918,7 +918,7 @@ section#skill{
 
 
 section#ability{
-  margin-top: 100px;
+  // margin-top: 100px;
   // padding-top: 70px;
   background-color: #222;
   

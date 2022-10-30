@@ -88,7 +88,7 @@ function videoUrl(url) {
 }
 
 
-const $indicators = document.querySelectorAll('.navigation-text-wrap > .video-navigation > li > video');
+const $indicators = document.querySelectorAll(' .video-navigation > li > video');
 const $sideBanrs = document.querySelectorAll('.video-text-wrapper');
 
 let nowIdx = 0;
@@ -128,33 +128,94 @@ $indicators.forEach(function($indicator, idx){
 
 
 //배너슬라이드
-const $banercontainer = document.querySelector('.banner > .banner-wrap > .banner-slide > .banner-slide-container > .slide-wrap ');
-const $bannerPrev = document.querySelector('.banner > .slides-navigation.prev');
-const $bannerNext = document.querySelector('.banner > .slides-navigation.next');
+const $bannercontainer = document.querySelectorAll('.banner-wrap > .banner-slide > .banner-slide-container > .slide-wrap ');
+const $bannerPrev = document.querySelector(' .banner-wrap > .text-box > .slides-navigation.prev');
+const $bannerNext = document.querySelector(' .banner-wrap > .text-box > .slides-navigation.next');
+const $bannerindicators = document.querySelectorAll('.slides-pagination>li>a');
 
 let bannerNowIdx = 0;
 
-$bannerPrev.addEventListener('click',function(evt){
-  evt.preventDefault();
-
-  if(bannerNowIdx>0){
-    bannerNowIdx--;
-  }else{
-    bannerNowIdx=3;
+const fadeAction = function(bannerNowIdx){
+  //모든 슬라이드 숨김, 인디케이터 비활성화
+  for(let i=0;i<$indicators.length;i++){
+      $bannercontainer[i].style.display = 'none';
+      $bannerindicators[i].parentElement.classList.remove('on');
   }
-  $banercontainer.style.marginLeft = -1330*bannerNowIdx + 'px';
+
+  //해당 슬라이드 노출, 인디케이터 활성화
+  $bannercontainer[bannerNowIdx].style.display = 'block';
+  $bannerindicators[bannerNowIdx].parentElement.classList.add('on');
+};
+
+//인디케이터에 대한 click 이벤트 구문
+$bannerindicators.forEach(function($indicator,idx){
+$indicator.addEventListener('click', function(evt){
+  evt.preventDefault();
+  bannerNowIdx = idx;
+  fadeAction(bannerNowIdx);//fade 변환함수 호출
+});
 });
 
-$bannerNext.addEventListener('click',function(evt){
-  evt.preventDefault();
 
-  if(bannerNowIdx<3){
-    bannerNowIdx++;
-  }else{
-    bannerNowIdx=0;
-  }
-  $banercontainer.style.marginLeft = -1330*bannerNowIdx + 'px';
+//다음버튼에 대한 click 이벤트 구문
+$bannerNext.addEventListener('click', function(evt){
+evt.preventDefault();
+//nowIdx가$indicators.length-1보다 작으면 nowIdx가 1씩 증가하고 그게 아니면 nowIdx=0이된다.
+(bannerNowIdx<$bannerindicators.length-1) ? bannerNowIdx++ : bannerNowIdx=0;
+fadeAction(bannerNowIdx);
 });
+
+
+//이전버튼에 대한 click 이벤트 구문
+$bannerPrev.addEventListener('click', function(evt){
+evt.preventDefault();
+//nowIdx가 1보다 크면 nowIdx가 1씩 감소하고 그게 아니면 nowIdx가 $indicators.length-1;된다.
+// nowIdx>1 ? nowIdx-- : nowIdx=$indicators.length-1;
+// 위의 방법은 논리적오류이기때문에 0보다 nowidx가 커야함. 위의 방법은 2,3,4만 해당
+bannerNowIdx>0 ? bannerNowIdx-- : bannerNowIdx=$bannerindicators.length-1;
+fadeAction(bannerNowIdx);
+});
+
+
+
+// $bannerPrev.addEventListener('click',function(evt){
+//   evt.preventDefault();
+
+//   if(bannerNowIdx>0){
+//     bannerNowIdx--;
+//   }else{
+//     bannerNowIdx=3;
+//   }
+//   $bannercontainer.style.marginLeft = -1330*bannerNowIdx + 'px';
+
+//   // if(window.width()<=1330){
+//   //   $bannercontainer.style.marginLeft = -1330*bannerNowIdx + 'px';
+
+//   // }else{
+//   //   $bannercontainer.style.marginLeft = -100*bannerNowIdx + '%';
+//   // }
+
+// });
+
+
+// $bannerNext.addEventListener('click',function(evt){
+//   evt.preventDefault();
+
+//   if(bannerNowIdx<3){
+//     bannerNowIdx++;
+//   }else{
+//     bannerNowIdx=0;
+// }
+// $bannercontainer.style.marginLeft = -1330*bannerNowIdx + 'px';
+
+// // if(window.width()<=1330){
+// //   $bannercontainer.style.marginLeft = -100*bannerNowIdx + '%';
+
+// // }else{
+// //   $bannercontainer.style.marginLeft = -100*bannerNowIdx + '%';
+// // }
+
+// });
 
 let nowArr = 0;
 let intervalKey = null;
@@ -168,7 +229,7 @@ const autoPlay = function(){
   },5000)
 };
 
-autoPlay();
+// autoPlay();
 
 
 
@@ -195,8 +256,6 @@ function countdown(){
 function formatTime(time){
   return time < 10 ? '0' + time : time;
 }
-
-
 
 setInterval(countdown, 1000);
 
@@ -247,15 +306,90 @@ handleMarquee();
 //GNB
 const $gnbButton = document.querySelector('#showMenu');
 const $gnbNav = document.querySelector('nav');
+const $lightbox = document.querySelector('.lightbox');
+const $shadow = document.querySelector('.shadow');
 
 $gnbButton.addEventListener('click', function(){
   if($gnbNav.style.display==='none'){
-    $gnbButton.style.right = '600px';
+    $gnbButton.style.right = '70%';
     $gnbNav.style.display = 'block';
+    $shadow.style.display = 'block';
  }else{
-  $gnbButton.style.right = 0;
+  $gnbButton.style.right = '';
   $gnbNav.style.display = 'none';
+  $shadow.style.display = 'none';
  }
- 
 });
 
+
+
+$shadow.addEventListener('click', function(){
+  this.style.display = 'none';
+  if($gnbNav.style.display==='none'){
+    $gnbButton.style.right = '70%';
+    $gnbNav.style.display = 'block';
+    $shadow.style.display = 'block';
+ }else{
+  $gnbButton.style.right = '';
+  $gnbNav.style.display = 'none';
+  $shadow.style.display = 'none';
+ }
+});
+
+
+
+document.addEventListener('keyup', function(evt){
+    console.log(`현재 눌린 키번호는 ${evt.which}`);
+    if(evt.which === 27){
+        if($gnbNav.style.display==='none'){
+          $gnbButton.style.right = '500px';
+          $gnbNav.style.display = 'block';
+          $shadow.style.display = 'block';
+        }else{
+        $gnbButton.style.right = '';
+        $gnbNav.style.display = 'none';
+        $shadow.style.display = 'none';
+        }
+        $shadow.style.display = 'none';
+        
+    }
+});
+
+
+//사이드메뉴 추천상품
+const $nav = document.querySelector('nav')
+const $sideMenu1 = document.querySelector('#wrap > header > nav > ul.gnb > li:nth-child(1)');
+const $sideMenu2 = document.querySelector('#wrap > header > nav > ul.gnb > li:nth-child(2)');
+const $sideMenu3 = document.querySelector('#wrap > header > nav > ul.gnb > li:nth-child(3)');
+const $sideLnb = document.querySelector('#wrap > header > nav > ul.gnb > li > .lnb > li  ')
+const $sideRecommend1 = document.querySelector('.recommend-shoes');
+const $sideRecommend2 = document.querySelector('.recommend-clothes');
+const $sideRecommend3 = document.querySelector('.recommend-baby');
+
+
+$sideMenu1.addEventListener('mouseover',function(){
+  $sideRecommend1.style.display = 'flex';
+  $sideRecommend2.style.display = 'none';
+  $sideRecommend3.style.display = 'none';
+});
+
+$sideMenu2.addEventListener('mouseover',function(){
+  $sideRecommend2.style.display = 'flex';
+  $sideRecommend3.style.display = 'none';
+  $sideRecommend1.style.display = 'none';
+});
+
+
+$sideMenu3.addEventListener('mouseover',function(){
+  $sideRecommend3.style.display = 'flex';
+  $sideRecommend1.style.display = 'none';
+  $sideRecommend2.style.display = 'none';
+  
+});
+
+
+$nav.addEventListener('mousedown',function(){
+  $sideRecommend1.style.display = 'none';
+  $sideRecommend2.style.display = 'none';
+  $sideRecommend3.style.display = 'none';
+});
